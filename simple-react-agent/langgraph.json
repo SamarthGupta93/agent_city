@@ -1,0 +1,15 @@
+{
+    "dependencies": ["."],
+    "graphs": {
+        "weather_agent": "./agents/simple_react/agent.py:agent"
+    },
+    "env": ".env",
+    "checkpointer": {
+        "ttl": {
+        "strategy": "delete",
+        "sweep_interval_minutes": 60,
+        "default_ttl": 1440
+        }
+    },
+    "port": 2025
+}
