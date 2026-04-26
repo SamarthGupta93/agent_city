@@ -31,6 +31,7 @@ simple-react-agent/
    ```
    GOOGLE_API_KEY=your_key_here
    GOOGLE_MODEL=gemini-2.5-flash-lite
+   LANGSMITH_API_KEY=langsmith_api_key
    ```
 
 ## Running
