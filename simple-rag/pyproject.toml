@@ -1,0 +1,17 @@
+[project]
+name = "simple-rag"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "langchain>=1.2.15",
+    "langchain-community>=0.4.1",
+    "langchain-google-genai>=4.2.2",
+    "langchain-postgres>=0.0.17",
+    "langchain-text-splitters>=1.1.2",
+    "pymupdf>=1.27.2.3",
+    "python-dotenv>=1.2.2",
+    "langgraph>=0.2.0",
+    "langgraph-checkpoint-postgres>=2.0.0",
+]

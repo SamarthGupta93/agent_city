@@ -1,0 +1,98 @@
+import json
+import os
+import psycopg
+from typing import Annotated
+from typing_extensions import TypedDict
+from langchain_core.messages import HumanMessage, AIMessage
+from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
+from langchain_postgres import PGVector
+from langgraph.graph import StateGraph, START, END
+from langgraph.graph.message import add_messages
+from langgraph.checkpoint.postgres import PostgresSaver
+
+
+class State(TypedDict):
+    messages: Annotated[list, add_messages]
+    context: str
+
+
+class ConversationalRAG:
+    """
+    Conversational RAG agent backed by LangGraph with PostgreSQL session persistence.
+    Each session is identified by a session_id (thread_id). Conversation history
+    is stored in Postgres and automatically restored on subsequent calls.
+    """
+
+    def __init__(self):
+        self.embedding_model = GoogleGenerativeAIEmbeddings(
+            model=os.getenv("GOOGLE_EMBEDDING_MODEL"),
+        )
+        self.vector_store = PGVector(
+            embeddings=self.embedding_model,
+            collection_name=os.getenv("COLLECTION_NAME"),
+            connection=os.getenv("VECTOR_DB_URI"),
+            use_jsonb=True,
+        )
+        self.llm = ChatGoogleGenerativeAI(
+            model=os.getenv("GOOGLE_MODEL", "gemini-2.5-flash-lite"),
+            temperature=0.3,
+        )
+        self._prompt_template = open(
+            os.path.join(os.path.dirname(__file__), "agent.md")
+        ).read()
+
+        # PostgresSaver needs a plain postgresql:// URI (not postgresql+psycopg://)
+        db_uri = os.getenv("POSTGRES_SESSION_URI")
+        self._conn = psycopg.connect(db_uri, autocommit=True)
+        self._checkpointer = PostgresSaver(self._conn)
+        self._checkpointer.setup()
+        self._graph = self._build_graph()
+
+    def _retrieve(self, state: State) -> dict:
+        query = state["messages"][-1].content
+        docs = self.vector_store.similarity_search(query, k=3)
+        context = json.dumps(
+            [
+                {
+                    "content": doc.page_content,
+                    "source": doc.metadata.get("source", "unknown"),
+                    "title": doc.metadata.get("title", "unknown"),
+                }
+                for doc in docs
+            ],
+            indent=2,
+        )
+        return {"context": context}
+
+    def _generate(self, state: State) -> dict:
+        history = "\n".join(
+            f"{'User' if isinstance(m, HumanMessage) else 'Assistant'}: {m.content}"
+            for m in state["messages"][:-1]
+        )
+        prompt = self._prompt_template.format(
+            context=state["context"],
+            history=history or "No previous conversation.",
+            query=state["messages"][-1].content,
+        )
+        response = self.llm.invoke(prompt)
+        return {"messages": [response]}
+
+    def _build_graph(self):
+        graph = StateGraph(State)
+        graph.add_node("retrieve", self._retrieve)
+        graph.add_node("generate", self._generate)
+        graph.add_edge(START, "retrieve")
+        graph.add_edge("retrieve", "generate")
+        graph.add_edge("generate", END)
+        return graph.compile(checkpointer=self._checkpointer)
+
+    def chat(self, session_id: str, message: str) -> str:
+        config = {"configurable": {"thread_id": session_id}}
+        result = self._graph.invoke(
+            {"messages": [HumanMessage(content=message)]},
+            config=config,
+        )
+        return result["messages"][-1].content
+
+    def close(self):
+        self._conn.close()
