@@ -4,6 +4,7 @@ import psycopg
 from collections.abc import AsyncGenerator
 from typing import Annotated
 from typing_extensions import TypedDict
+import constants
 from langchain_core.messages import HumanMessage, AIMessage
 from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
 from langchain_postgres import PGVector
@@ -52,7 +53,7 @@ class ConversationalRAG:
 
     def _retrieve(self, state: State) -> dict:
         query = state["messages"][-1].content
-        docs = self.vector_store.similarity_search(query, k=3)
+        docs = self.vector_store.similarity_search(query, k=constants.TOPK_DOCS)
         doc_ids = [doc.metadata.get("id", "") for doc in docs]
         context = json.dumps(
             [

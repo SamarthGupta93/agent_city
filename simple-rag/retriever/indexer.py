@@ -10,6 +10,8 @@ import json
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_postgres import PGVector
 from langchain_core.documents import Document
+from logger import log
+from tqdm import tqdm
 
 
 class DocumentIndexingPipeline:
@@ -31,14 +33,15 @@ class DocumentIndexingPipeline:
 
     def add_documents(self):
         paths = glob.glob(f"{constants.CHUNKS_DIR}/*.txt")
+        log.info(f"Found {len(paths)} chunk file(s) to index.")
         documents = []
-        # TODO: Filter for duplicates based on metadata
-        for filepath in paths:
+        for filepath in tqdm(paths, desc="Loading chunks", unit="chunk"):
             document = self._load_chunked_documents(filepath)
             documents.append(document)
-        print(f"Loaded {len(documents)} documents for indexing.")
+        log.info(f"Indexing {len(documents)} chunk(s) into vector store...")
         ids = [doc.metadata["id"] for doc in documents]
         self.vector_store.add_documents(documents, ids=ids)
+        log.info(f"Indexing complete. {len(documents)} chunk(s) upserted.")
 
 
     def _load_chunked_documents(self, content_path: str) -> Document:

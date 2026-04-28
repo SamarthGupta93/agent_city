@@ -11,6 +11,7 @@ import constants
 from retriever.models import Document
 from langchain_community.document_loaders import PyPDFLoader, PyMuPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
+from tqdm import tqdm
 
 
 class DocumentChunkingPipeline:
@@ -30,11 +31,13 @@ class DocumentChunkingPipeline:
         chunks = []
         if paths is None:
             paths = glob.glob(os.path.join(constants.TEXT_LOADER_SAVE_DIR, "*_content.txt"))
-            log.info(f"Found {len(paths)} documents to chunk.")
-        for filepath in paths:
+        log.info(f"Chunking {len(paths)} document(s).")
+        for filepath in tqdm(paths, desc="Chunking documents", unit="doc"):
             document = self._load_text_document(filepath)
             chunked_documents = self.recursive_character_text_splitter(document)
+            log.info(f"  {os.path.basename(filepath)} → {len(chunked_documents)} chunks")
             chunks.extend(chunked_documents)
+        log.info(f"Total chunks produced: {len(chunks)}")
         self._save_chunked_documents(chunks)
         return chunks
     
@@ -94,13 +97,13 @@ class DocumentLoaderPipeline:
         return documents
 
     def load(self):
+        pdfs = [f for f in os.listdir(self.raw_dir) if f.endswith(".pdf")]
+        log.info(f"Found {len(pdfs)} PDF(s) in {self.raw_dir}")
         documents = []
-
-        for filename in os.listdir(self.raw_dir):
-            if filename.endswith(".pdf"):
-                doc_path = os.path.join(self.raw_dir, filename)
-                documents.append(self._load_document(doc_path))
-
+        for filename in tqdm(pdfs, desc="Loading PDFs", unit="file"):
+            doc_path = os.path.join(self.raw_dir, filename)
+            documents.append(self._load_document(doc_path))
+            log.info(f"  Loaded: {filename}")
         return documents
 
 
