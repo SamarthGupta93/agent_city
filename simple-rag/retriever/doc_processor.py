@@ -42,10 +42,11 @@ class DocumentChunkingPipeline:
     def _save_chunked_documents(self, documents: list[Document]):
         """Save the chunked documents to the CHUNKS_DIR."""
         os.makedirs(constants.CHUNKS_DIR, exist_ok=True)
-        for i, doc in enumerate(documents):
+        for doc in documents:
             name = doc.metadata["source"].split("/")[-1].rsplit(".")[0]
-            chunk_path = f"{constants.CHUNKS_DIR}/{name}_chunk_{i}.txt"
-            chunk_metadata_path = f"{constants.CHUNKS_DIR}/{name}_chunk_{i}_metadata.json"
+            chunk_index = doc.metadata["chunk_index"]
+            chunk_path = f"{constants.CHUNKS_DIR}/{name}_chunk_{chunk_index}.txt"
+            chunk_metadata_path = f"{constants.CHUNKS_DIR}/{name}_chunk_{chunk_index}_metadata.json"
             with open(chunk_path, "w") as chunk_file:
                 chunk_file.write(doc.content)
             with open(chunk_metadata_path, "w") as chunk_metadata_file:
@@ -66,6 +67,9 @@ class DocumentChunkingPipeline:
         texts = self.text_splitter.create_documents([document.content])
         chunks = []
         for i, text in enumerate(texts):
+            if text.page_content.strip() == "":
+                # Skip empty chunks
+                continue
             chunk_metadata = document.metadata.copy()
             chunk_metadata["chunk_index"] = i
             # Generate a unique ID for each chunk. This should be deterministic
@@ -117,7 +121,7 @@ class DocumentLoaderPipeline:
         file_format = path.split(".")[-1].lower()
         if file_format == "pdf":
             docs = self._load_pdf(path)
-            return Document(content=docs[0].page_content, metadata=docs[0].metadata)
+            return Document(content=docs[0].page_content.replace('\x00', ''), metadata=docs[0].metadata)
         else:
             # Print a warning message and skip the file if the format is unsupported
             log.warning(f"Unsupported file format. Only .pdf files are supported. Skipping file: {path}")

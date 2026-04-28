@@ -23,7 +23,11 @@ def index_documents():
     indexer = DocumentIndexingPipeline()
     indexer.add_documents()
 
-def main(query: str):
+def ask(query: str):
+    """
+    run the RAG pipeline for a given query: retrieve relevant documents from the vector store,
+    construct a prompt with the retrieved documents as context, and generate a response using the LLM
+    """
     # Run RAG
     rag = SimpleRAG()
     prompt, response = rag.run(query)
@@ -31,6 +35,14 @@ def main(query: str):
     print("Response:\n", response)
 
 def converse(session_id: str = None):
+    """
+    Chat with an assistant that uses the RAG pipeline to retrieve relevant documents and generate responses 
+    based on the conversation history and retrieved context. 
+    Each conversation is associated with a unique session ID for state management.
+    Args:
+        session_id (str, optional): A unique identifier for the conversation session. 
+            If not provided, a new UUID will be generated.
+    """
     session_id = session_id or str(uuid.uuid4())
     print(f"Session: {session_id}")
     print("Type 'exit' to quit.\n")
@@ -48,4 +60,4 @@ def converse(session_id: str = None):
         agent.close()
 
 if __name__ == "__main__":
-    converse()
+    index_documents()

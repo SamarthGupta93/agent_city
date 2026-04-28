@@ -1,6 +1,7 @@
 import json
 import os
 import psycopg
+from collections.abc import AsyncGenerator
 from typing import Annotated
 from typing_extensions import TypedDict
 from langchain_core.messages import HumanMessage, AIMessage
@@ -14,6 +15,7 @@ from langgraph.checkpoint.postgres import PostgresSaver
 class State(TypedDict):
     messages: Annotated[list, add_messages]
     context: str
+    doc_ids: list[str]
 
 
 class ConversationalRAG:
@@ -51,6 +53,7 @@ class ConversationalRAG:
     def _retrieve(self, state: State) -> dict:
         query = state["messages"][-1].content
         docs = self.vector_store.similarity_search(query, k=3)
+        doc_ids = [doc.metadata.get("id", "") for doc in docs]
         context = json.dumps(
             [
                 {
@@ -62,7 +65,7 @@ class ConversationalRAG:
             ],
             indent=2,
         )
-        return {"context": context}
+        return {"context": context, "doc_ids": doc_ids}
 
     def _generate(self, state: State) -> dict:
         history = "\n".join(
@@ -86,13 +89,32 @@ class ConversationalRAG:
         graph.add_edge("generate", END)
         return graph.compile(checkpointer=self._checkpointer)
 
-    def chat(self, session_id: str, message: str) -> str:
+    def chat(self, session_id: str, message: str) -> dict:
         config = {"configurable": {"thread_id": session_id}}
         result = self._graph.invoke(
             {"messages": [HumanMessage(content=message)]},
             config=config,
         )
-        return result["messages"][-1].content
+        return {
+            "response": result["messages"][-1].content,
+            "doc_ids": result.get("doc_ids", []),
+        }
+
+    async def astream(self, session_id: str, message: str) -> AsyncGenerator[dict, None]:
+        config = {"configurable": {"thread_id": session_id}}
+        doc_ids_sent = False
+        async for event_type, data in self._graph.astream(
+            {"messages": [HumanMessage(content=message)]},
+            config=config,
+            stream_mode=["values", "messages"],
+        ):
+            if event_type == "values" and not doc_ids_sent and data.get("doc_ids"):
+                yield {"type": "doc_ids", "doc_ids": data["doc_ids"]}
+                doc_ids_sent = True
+            elif event_type == "messages":
+                chunk, metadata = data
+                if metadata.get("langgraph_node") == "generate" and chunk.content:
+                    yield {"type": "token", "content": chunk.content}
 
     def close(self):
         self._conn.close()

@@ -45,7 +45,7 @@ class DocumentIndexingPipeline:
         """Load all chunked documents from the CHUNKS_DIR."""
         metadata_path = content_path.replace(".txt", "_metadata.json")
         with open(content_path, "r") as content_file:
-            content = content_file.read()
+            content = content_file.read().replace('\x00', '')
         with open(metadata_path, "r") as metadata_file:
             metadata = json.load(metadata_file)
         return Document(page_content=content, metadata=metadata)

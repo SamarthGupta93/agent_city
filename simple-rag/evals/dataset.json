@@ -1,0 +1,456 @@
+[
+  {
+    "id": 1,
+    "query": "What octane rating of unleaded petrol does the Elantra petrol engine require?",
+    "expected_answer": "The Elantra petrol engine requires unleaded fuel with an Octane Rating of RON (Research Octane Number) 91 / AKI (Anti-Knock Index) 87 or higher. Methanol blended fuels should not be used.",
+    "chunk_type": "single",
+    "document_ids": ["d65d450e-5305-5254-bba2-792ce384090a"]
+  },
+  {
+    "id": 2,
+    "query": "What does DANGER indicate in the Hyundai owner's manual?",
+    "expected_answer": "DANGER indicates a hazardous situation which, if not avoided, will result in death or serious injury.",
+    "chunk_type": "single",
+    "document_ids": ["3e79baeb-d851-57e0-980a-ec52b8982a65"]
+  },
+  {
+    "id": 3,
+    "query": "What is the maximum ethanol percentage in gasohol that can be used in the Elantra?",
+    "expected_answer": "Do not use gasohol containing more than 10% ethanol. Using gasohol with more than 10% ethanol may cause drivability problems and damage to the fuel system, engine control system, and emission control system.",
+    "chunk_type": "single",
+    "document_ids": ["b517a31c-eae8-507f-8194-1ae85123b41f"]
+  },
+  {
+    "id": 4,
+    "query": "What are the two conditions that must both be met for the Smart Trunk to activate without touching anything?",
+    "expected_answer": "The Smart Trunk can be opened with no-touch activation when: (1) all doors have been closed and locked for at least 15 seconds, and (2) the smart key is positioned in the detecting area for more than 3 seconds.",
+    "chunk_type": "single",
+    "document_ids": ["ca7e2e43-7e05-5c2b-a45f-ab6bb26e8dcc"]
+  },
+  {
+    "id": 5,
+    "query": "What is the correct inflation pressure for the compact spare tire on the Elantra?",
+    "expected_answer": "The compact spare tire should be inflated to 420 kPa (60 psi). Always check the tire pressure after installing the compact spare tire.",
+    "chunk_type": "single",
+    "document_ids": ["2e494d5d-942b-5ea0-8c96-b861ed0d7569"]
+  },
+  {
+    "id": 6,
+    "query": "What is the maximum speed allowed when driving the Elantra on a compact spare tire?",
+    "expected_answer": "Never operate the vehicle over 80 km/h (50 mph) when the compact spare tire is installed. The compact spare tire is designed for emergency use only.",
+    "chunk_type": "single",
+    "document_ids": ["85774a2a-1bf6-595c-b137-f10b5a132dd0"]
+  },
+  {
+    "id": 7,
+    "query": "How do you activate DS (Drive Sporty) mode in the Elantra automatic transmission?",
+    "expected_answer": "To shift into DS mode, move the shift lever from D (Drive) to the center of the manual shift mode. The engine and transmission control logic is automatically optimized for sporty driving. In DS mode, moving the lever to + or - changes to manual shift mode.",
+    "chunk_type": "single",
+    "document_ids": ["017d2f2d-34eb-584d-a987-c5cf2e80510f"]
+  },
+  {
+    "id": 8,
+    "query": "How do you completely turn off the HVAC fan in the Elantra?",
+    "expected_answer": "Setting the fan speed control knob to the '0' position turns off the fan. Note that operating the fan speed when the ignition switch is in the ON position but the engine is not running could cause the battery to discharge.",
+    "chunk_type": "single",
+    "document_ids": ["e0c88263-b343-57f5-9b5a-695dfae31a9e"]
+  },
+  {
+    "id": 9,
+    "query": "How do you deactivate the Smart Trunk function using the smart key?",
+    "expected_answer": "If you press any button on the smart key during the Detect and Alert stage — door lock, door unlock, trunk open, or panic — the Smart Trunk function will be deactivated.",
+    "chunk_type": "single",
+    "document_ids": ["1cb804dd-41b7-5c63-b20e-43ac9d7202ce"]
+  },
+  {
+    "id": 10,
+    "query": "In Defrost-Level mode, where does the Elantra climate control direct the air flow?",
+    "expected_answer": "In Defrost-Level mode, most of the air flow is directed to the windshield, with a small amount of air directed to the side window defrosters.",
+    "chunk_type": "single",
+    "document_ids": ["a1048bd6-a3a4-5c9b-a92d-24ac7dfb1dd7"]
+  },
+  {
+    "id": 11,
+    "query": "Should tire pressure be checked on cold or warm tires, and what does 'cold tires' mean?",
+    "expected_answer": "All tire pressures should be checked when the tires are cold. 'Cold tires' means the vehicle has not been driven for at least three hours or driven less than 1.6 km (one mile) since start-up.",
+    "chunk_type": "single",
+    "document_ids": ["4986feb6-5abc-51e1-9bc4-d0a90019b419"]
+  },
+  {
+    "id": 12,
+    "query": "What is the maximum MTBE content Hyundai recommends avoiding in fuel for the Elantra?",
+    "expected_answer": "Hyundai recommends avoiding fuels containing MTBE (Methyl Tertiary Butyl Ether) over 15.0% vol. (Oxygen Content 2.7% weight). Fuel containing MTBE over this level may reduce vehicle performance and produce vapor lock or hard starting.",
+    "chunk_type": "single",
+    "document_ids": ["3aa15160-7dcc-508f-bf15-33d514e9852f"]
+  },
+  {
+    "id": 13,
+    "query": "Where are the ISOFIX anchorages located in the Elantra?",
+    "expected_answer": "ISOFIX anchorages are located between the seatback and the seat cushion of the rear seat left and right outboard seating positions. There are no ISOFIX anchorages provided for the center rear seating position.",
+    "chunk_type": "single",
+    "document_ids": ["2119820c-1bf0-5f55-b286-bdf347d20245"]
+  },
+  {
+    "id": 14,
+    "query": "What engine speed range should be maintained during the first 1,000 km break-in period?",
+    "expected_answer": "During the first 1,000 km (600 miles), keep engine speed (rpm) between 2,000 rpm and 4,000 rpm while driving. Also avoid racing the engine and do not maintain a single speed for long periods of time.",
+    "chunk_type": "single",
+    "document_ids": ["9a52587b-52a1-50de-985c-39045cd41c5a"]
+  },
+  {
+    "id": 15,
+    "query": "What is the basic warranty period for a new Hyundai vehicle?",
+    "expected_answer": "The basic warranty exists for a period of 36 months from the date of delivery to the first purchaser, irrespective of mileage. For commercial use such as Taxi/Tourist operation, the warranty is 36 months or 100,000 kilometers, whichever is earlier.",
+    "chunk_type": "single",
+    "document_ids": ["7c182de6-506f-5817-b39f-427c1c5c8baa"]
+  },
+  {
+    "id": 16,
+    "query": "What is the size of the Smart Trunk detecting area?",
+    "expected_answer": "The Smart Trunk operates with a welcome alert if the smart key is detected within 50 to 100 cm from the trunk. If you are positioned in this detecting area carrying a smart key, the hazard warning lights will blink and a chime will sound.",
+    "chunk_type": "single",
+    "document_ids": ["5d1060d1-1b66-52f6-867c-c74554ba7d45"]
+  },
+  {
+    "id": 17,
+    "query": "How do you close the instrument panel air vents in the Elantra?",
+    "expected_answer": "To close the instrument panel vents, slide the vent adjustment lever to the LEFT until it clicks.",
+    "chunk_type": "single",
+    "document_ids": ["c2205064-9838-5c21-b504-19dde696aa2c"]
+  },
+  {
+    "id": 18,
+    "query": "What does the air intake Fresh mode do in the Elantra climate control system?",
+    "expected_answer": "When Fresh mode is selected, air enters the vehicle from outside and is heated or cooled according to the function selected. Operating the system primarily in Fresh mode is recommended. Recirculation mode should only be used temporarily when needed.",
+    "chunk_type": "single",
+    "document_ids": ["2022b2a0-eeb4-5801-be26-7ea4e4a72f16"]
+  },
+  {
+    "id": 19,
+    "query": "What is the N (Neutral) position used for in the Elantra automatic transmission?",
+    "expected_answer": "The wheels and transmission are not engaged in N (Neutral). Use Neutral if you need to restart a stalled engine or if it is necessary to stop with the engine ON. Shift into P (Park) if you need to leave the vehicle for any reason. Always depress the brake pedal when shifting from Neutral to another gear.",
+    "chunk_type": "single",
+    "document_ids": ["65768167-df37-58bb-9c62-82ffba415bdb"]
+  },
+  {
+    "id": 20,
+    "query": "What fuse protects the fuel injectors (INJECTOR #1~#4) in the petrol engine room fuse box?",
+    "expected_answer": "The INJ. fuse with a 15A rating protects INJECTOR #1~#4 in the petrol engine room fuse box.",
+    "chunk_type": "single",
+    "document_ids": ["b7b96ef4-42ad-5387-948a-a75e68fd6dd1"]
+  },
+  {
+    "id": 21,
+    "query": "What does the D (Drive) position do in the Elantra automatic transmission?",
+    "expected_answer": "D (Drive) is the normal driving position. The transmission automatically shifts through a 6-gear sequence, providing the best fuel economy and power. For extra power when passing another vehicle or driving uphill, depress the accelerator fully and the transmission will automatically downshift to a lower gear.",
+    "chunk_type": "single",
+    "document_ids": ["20a7ac49-31b7-56b0-abab-79ee9ef4b187"]
+  },
+  {
+    "id": 22,
+    "query": "What ECE approval standard is required for a Child Restraint System to use ISOFIX universal mounting in the Elantra?",
+    "expected_answer": "An ISOFIX Child Restraint System may only be installed if it has vehicle-specific or universal approval in accordance with the requirements of ECE-R44 or ECE-R129. Child Restraint Systems with universal approval according to these standards also need to be fixed with a top-tether connected to the back side of the rear seats.",
+    "chunk_type": "single",
+    "document_ids": ["c4eb5a15-f7bb-54ea-ac67-b771614789aa"]
+  },
+  {
+    "id": 23,
+    "query": "What damage does using leaded fuel cause to the Elantra?",
+    "expected_answer": "Using leaded fuel is detrimental to the catalytic converter and will damage the engine control system's oxygen sensor and affect emission control. The manual warns NEVER USE LEADED FUEL.",
+    "chunk_type": "single",
+    "document_ids": ["31c5f7c8-3a95-58f1-a592-0bbb02ad895c"]
+  },
+  {
+    "id": 24,
+    "query": "What braking advice does the Elantra manual give during the break-in period?",
+    "expected_answer": "Avoid hard stops, except in emergencies, to allow the brakes to seat properly during the break-in period of the first 1,000 km.",
+    "chunk_type": "single",
+    "document_ids": ["8786e1db-6255-5384-8a1c-bc136d4cf3bc"]
+  },
+  {
+    "id": 25,
+    "query": "What should you check before driving the Elantra in a foreign country?",
+    "expected_answer": "Before driving in another country you should: observe all regulations regarding registration and insurance, and determine that acceptable fuel is available. Note that the New Vehicle Limited Warranty may not cover damage caused by fuels containing methanol or fuels containing MTBE over 15.0% vol.",
+    "chunk_type": "single",
+    "document_ids": ["437ae1e8-6b20-5132-b8e8-6ba22a7532bb"]
+  },
+  {
+    "id": 26,
+    "query": "What fuels and fuel additives should NOT be used in the Elantra, and what damage does each cause?",
+    "expected_answer": "Leaded fuel damages the catalytic converter and oxygen sensor. Gasohol over 10% ethanol or any amount of methanol causes drivability problems and damage to the fuel system and emission control. Metallic fuel additives (silicone, MMT/manganese, ferrocene/iron-based) cause cylinder misfire, poor acceleration, engine stalling, and catalyst damage. Methanol (wood alcohol) reduces performance and damages the fuel system, engine control, and emission control systems.",
+    "chunk_type": "multi",
+    "document_ids": [
+      "31c5f7c8-3a95-58f1-a592-0bbb02ad895c",
+      "b517a31c-eae8-507f-8194-1ae85123b41f",
+      "e2eff17a-d5f9-5ce2-bfa4-afbddb156045",
+      "3aa15160-7dcc-508f-bf15-33d514e9852f"
+    ]
+  },
+  {
+    "id": 27,
+    "query": "Under what conditions does the Smart Trunk NOT operate?",
+    "expected_answer": "The Smart Trunk does not operate when: the smart key is detected within 15 seconds of doors being closed and locked and remains continuously detected; the smart key is within 1.5 m of front door handles within 15 seconds (for Welcome Light vehicles); a door is not locked or closed; the smart key is inside the vehicle; the smart key is near a radio transmitter (radio station, airport); the smart key is near a mobile two-way radio or cellular phone; or another vehicle's smart key is being operated nearby.",
+    "chunk_type": "multi",
+    "document_ids": [
+      "ca7e2e43-7e05-5c2b-a45f-ab6bb26e8dcc",
+      "31c96a69-b5e3-58e9-989b-db95bcaf9531",
+      "87d084bb-eabf-5c1a-a6b1-809bd68c0aa2"
+    ]
+  },
+  {
+    "id": 28,
+    "query": "What are all the safety precautions and restrictions when driving on the Elantra compact spare tire?",
+    "expected_answer": "Restrictions include: check tire pressure after installation (inflate to 420 kPa / 60 psi); do not exceed 80 km/h (50 mph); do not take the vehicle through an automatic car wash; do not use the compact spare on any other vehicle; do not use more than one compact spare at a time; do not tow a trailer; do not use tire chains; the compact spare has shorter tread life so inspect regularly; the smaller diameter reduces ground clearance by approximately 25 mm. Repair or replace the original tire as soon as possible.",
+    "chunk_type": "multi",
+    "document_ids": [
+      "2e494d5d-942b-5ea0-8c96-b861ed0d7569",
+      "85774a2a-1bf6-595c-b137-f10b5a132dd0",
+      "5692e817-b106-56d4-90f1-b43cc44384bc"
+    ]
+  },
+  {
+    "id": 29,
+    "query": "How does each gear position work in the Elantra automatic transmission?",
+    "expected_answer": "P (Park): Locks the transmission — always come to a complete stop before shifting, depress the brake and press the shift button to leave Park. R (Reverse): For driving backward — always come to a complete stop before shifting in or out to avoid transmission damage. N (Neutral): Wheels and transmission disengaged — use for engine restart or brief stops. D (Drive): Normal driving — automatically shifts through 6 gears for best fuel economy; flooring the accelerator causes automatic downshift.",
+    "chunk_type": "multi",
+    "document_ids": [
+      "deab0044-4709-5e8f-968b-465806d35ab5",
+      "da9b9753-a228-5581-8e94-a0ea1452562e",
+      "65768167-df37-58bb-9c62-82ffba415bdb",
+      "20a7ac49-31b7-56b0-abab-79ee9ef4b187"
+    ]
+  },
+  {
+    "id": 30,
+    "query": "What are all the available air flow modes in the Elantra climate control and what does each do?",
+    "expected_answer": "Face-Level: Air directed toward upper body and face. Bi-Level: Air directed toward face and floor. Floor-Level: Most air to floor, small amount to windshield and side window defrosters. Floor/Defrost-Level: Most air to floor and windshield, small amount to side window defrosters. Defrost-Level: Most air to windshield, small amount to side window defrosters. MAX A/C-Level (if equipped): Cools vehicle interior faster — air directed toward upper body and face; A/C and recirculation cannot be independently selected in this mode.",
+    "chunk_type": "multi",
+    "document_ids": [
+      "d3e33a8f-563d-5438-af4d-2b95c4984c83",
+      "a1048bd6-a3a4-5c9b-a92d-24ac7dfb1dd7"
+    ]
+  },
+  {
+    "id": 31,
+    "query": "What are the full steps and safety requirements for installing a Child Restraint System using ISOFIX in the Elantra?",
+    "expected_answer": "Read and follow the CRS manufacturer's instructions before installing. Install only in the left or right rear outboard seating positions (no ISOFIX for center seat). Steps: (1) Properly secure the CRS to the vehicle using the ISOFIX anchorages or lap belt. (2) Push and pull the CRS forward and side-to-side to verify firm attachment. (3) Adjust the vehicle seat so the child fits comfortably in the CRS. (4) Follow the CRS manufacturer's instructions for connecting ISOFIX attachments. (5) Secure the child in the CRS per manufacturer's instructions. CRS must have ECE-R44 or ECE-R129 approval and a top-tether must be connected to the rear seat back.",
+    "chunk_type": "multi",
+    "document_ids": [
+      "2b1056a7-db9c-5fc9-a61c-e5b186afa34c",
+      "95bb9ccc-cddf-559c-ac8f-cee43b475e0a",
+      "822e6441-782f-57ed-b3fa-19038a4d430b",
+      "a428c6d4-610f-5511-8db0-bca4af051532"
+    ]
+  },
+  {
+    "id": 32,
+    "query": "What maintenance items require more frequent service under severe driving conditions for the petrol engine?",
+    "expected_answer": "Under severe driving conditions, the engine oil and engine oil filter must be replaced every 5,000 km or 6 months. The air cleaner filter must be replaced more frequently depending on conditions (especially dusty/rough roads). Spark plugs must also be replaced more frequently depending on conditions. Other items such as steering gear, driveshaft boots, and brake components may also require more frequent inspection.",
+    "chunk_type": "multi",
+    "document_ids": [
+      "0d8c54b0-c894-5c7d-8c74-9e71c7a4a2ec",
+      "b9df66ab-1e02-5f97-a1c2-36d6a726df7c"
+    ]
+  },
+  {
+    "id": 33,
+    "query": "What are all the warnings about tire pressure — consequences of both underinflation and overinflation?",
+    "expected_answer": "Underinflation: Severe underinflation (70 kPa or more) can cause severe heat build-up, blowouts, tread separation and tire failure leading to loss of vehicle control and potentially death — risk is higher at high speeds or on hot days. Underinflation also causes excessive wear, poor handling, and reduced fuel economy, and can cause wheel deformation. Overinflation: Produces harsh ride, excessive wear at center of tread, and greater risk of damage from road hazards. Both: Overinflation or underinflation reduces tire life, adversely affects vehicle handling, and can lead to sudden tire failure.",
+    "chunk_type": "multi",
+    "document_ids": [
+      "4986feb6-5abc-51e1-9bc4-d0a90019b419",
+      "9934e944-2f65-55ea-a981-3114ae897722",
+      "ac78e5f0-4f5b-5968-9935-ff5b6e3eb329"
+    ]
+  },
+  {
+    "id": 34,
+    "query": "What are the owner's responsibilities and what damage types are excluded from the Hyundai basic warranty?",
+    "expected_answer": "Owner responsibilities: proper use and maintenance per the Owner's Manual, retaining maintenance service records, delivering the vehicle to an authorized dealer during business hours. Exclusions include: normal maintenance (oil changes, wheel balancing, etc.), normal wear parts (spark plugs, brake pads, wiper blades, bulbs), damage from negligence, misuse, accident, theft, flooding, fire, improper fuel or lubricants, non-Hyundai parts, unauthorized modifications, paint scratches, stone chipping, and incidental or consequential damages including loss of time or commercial loss.",
+    "chunk_type": "multi",
+    "document_ids": [
+      "7c182de6-506f-5817-b39f-427c1c5c8baa",
+      "3e25103d-4878-5f7e-867d-9b09f015ff7b",
+      "f422d8ca-86d6-5825-abbf-0a7866cc6b5e",
+      "9aa6d16b-bf9c-5bb5-b941-5cc68fec0cf6"
+    ]
+  },
+  {
+    "id": 35,
+    "query": "What are all the driving requirements during the first 1,000 km break-in period?",
+    "expected_answer": "During the first 1,000 km: do not race the engine; keep engine speed between 2,000 rpm and 4,000 rpm; do not maintain a single speed for long periods — varying engine speed is needed to properly break in the vehicle; avoid hard stops except in emergencies to allow the brakes to seat properly; do not use unauthorized electronic devices.",
+    "chunk_type": "multi",
+    "document_ids": [
+      "9a52587b-52a1-50de-985c-39045cd41c5a",
+      "8786e1db-6255-5384-8a1c-bc136d4cf3bc"
+    ]
+  },
+  {
+    "id": 36,
+    "query": "What are all the emergency towing procedures and restrictions for the Elantra?",
+    "expected_answer": "Recommended: use an authorized Hyundai dealer or commercial tow-truck with wheel dollies or flatbed. It is acceptable to tow with rear wheels on the ground and front wheels lifted. Do not tow with front wheels on the ground. Do not use sling-type equipment. When using a cable or chain, a driver must be in the vehicle to steer and brake. Before towing check that the hook is not broken and check automatic transmission for fluid leaks — if leaking, flatbed or towing dolly must be used. Drivers of both vehicles should communicate frequently.",
+    "chunk_type": "multi",
+    "document_ids": [
+      "b426f595-0c16-5d8b-a7ef-60eb46837a02",
+      "83348d82-864e-5de3-9c76-6f8f4dc88611",
+      "05e58cab-88b4-518d-aa15-b1f6791f4b33",
+      "a9729ef6-27ae-57c6-97b2-826d69da11e4"
+    ]
+  },
+  {
+    "id": 37,
+    "query": "What are all the safety warnings related to the trunk in the Elantra owner's manual?",
+    "expected_answer": "Never allow anyone to occupy the trunk — serious injury or death can occur from lack of ventilation, exhaust fumes, heat build-up, or cold exposure. The trunk is part of the vehicle's crush zone in a crash. Keep vehicle locked and keys away from children. Always keep the trunk lid completely closed while in motion — open trunk allows poisonous carbon monoxide exhaust gases to enter. When operating Smart Trunk: ensure no people or objects are around the trunk before opening/closing; make sure objects in the trunk won't slide out on a slope; deactivate Smart Trunk when washing the vehicle.",
+    "chunk_type": "multi",
+    "document_ids": [
+      "ca7e2e43-7e05-5c2b-a45f-ab6bb26e8dcc",
+      "5d1060d1-1b66-52f6-867c-c74554ba7d45",
+      "376f24c8-cf29-54ec-a219-e9efd72c75ec"
+    ]
+  },
+  {
+    "id": 38,
+    "query": "What are all the precautions and warnings when using the climate control in Recirculation mode?",
+    "expected_answer": "Prolonged operation of the heater in Recirculation mode without A/C ON can cause fogging of the windshield. Prolonged use of A/C ON in Recirculation mode may result in excessively dry, dehumidified air and promote musty vent odor. Continued use in Recirculation mode may cause drowsiness to occupants due to rising carbon dioxide levels, which may lead to loss of vehicle control. Recirculation mode with A/C OFF may allow humidity to increase, causing condensation on the windshield and obscured visibility. Use Recirculation mode only temporarily when needed; operate primarily in Fresh mode.",
+    "chunk_type": "multi",
+    "document_ids": [
+      "2022b2a0-eeb4-5801-be26-7ea4e4a72f16",
+      "b9a8b10c-9842-5ad5-862e-0b9c2a20d141",
+      "2cc84ac3-bdf9-542b-93bf-dd169f2d5bbe"
+    ]
+  },
+  {
+    "id": 39,
+    "query": "What vehicle modifications and unauthorized electronic devices are prohibited in the Elantra and why?",
+    "expected_answer": "The Hyundai vehicle should not be modified in any way — modifications may adversely affect performance, safety, or durability, violate warranty conditions, and may violate government regulations. Improperly installed two-way radios or cellular phones can adversely affect electronic fuel injection and other electronic systems. Unauthorized electronic devices may cause the vehicle to operate abnormally, cause wire damage, battery discharge, and fire. Damage from modifications or unauthorized devices may not be covered under warranty.",
+    "chunk_type": "multi",
+    "document_ids": [
+      "bc8e24c8-9899-5328-80d9-d410dd5b4d66",
+      "228cc324-0fab-5cb0-b245-eac6656828c5",
+      "9a52587b-52a1-50de-985c-39045cd41c5a"
+    ]
+  },
+  {
+    "id": 40,
+    "query": "What are the complete instructions for checking and adjusting tire inflation pressure on the Elantra?",
+    "expected_answer": "Check tires once a month or more. Always check when tires are cold (not driven for 3 hours or more than 1.6 km). Use a good quality tire pressure gauge — you cannot tell by looking. Remove the valve cap and press the gauge onto the valve stem. If pressure matches the recommended value, no adjustment needed. If low, add air. If overfilled, release air by pressing the metal stem in the center of the tire valve and recheck. Reinstall valve caps after checking. Check the spare tire at the same time. Never release air from warm tires to adjust pressure — tires normally exceed recommended cold pressure by 28 to 41 kPa when warm.",
+    "chunk_type": "multi",
+    "document_ids": [
+      "4986feb6-5abc-51e1-9bc4-d0a90019b419",
+      "ded3ddef-6bec-55ed-879d-4da08600bbf5",
+      "a5747037-f885-5e80-aa41-da8bde9bdae9",
+      "f76e8a00-ed1d-5758-823a-228cf5d18b76"
+    ]
+  },
+  {
+    "id": 41,
+    "query": "What factors can reduce or increase the Smart Trunk detecting range?",
+    "expected_answer": "The detecting range may decrease or increase when: one side of the tire is raised to replace a tire or inspect the vehicle; the vehicle is slantingly parked on a slope or unpaved road. The Smart Trunk will also not work if the smart key is close to a radio transmitter (radio station, airport), near a mobile two-way radio or cellular phone, or if another vehicle's smart key is being operated close by.",
+    "chunk_type": "multi",
+    "document_ids": [
+      "31c96a69-b5e3-58e9-989b-db95bcaf9531",
+      "ff52620b-a001-527f-bb6c-5a3f49d51b46",
+      "87d084bb-eabf-5c1a-a6b1-809bd68c0aa2"
+    ]
+  },
+  {
+    "id": 42,
+    "query": "What do all four safety warning types mean — DANGER, WARNING, CAUTION, and NOTICE?",
+    "expected_answer": "DANGER: A hazardous situation which, if not avoided, WILL result in death or serious injury. WARNING: A hazardous situation which, if not avoided, COULD result in death or serious injury. CAUTION: A hazardous situation which, if not avoided, could result in minor or moderate injury. NOTICE: A situation which, if not avoided, could result in vehicle damage (not personal injury). The safety alert symbol (!) precedes DANGER, WARNING, and CAUTION but not NOTICE.",
+    "chunk_type": "multi",
+    "document_ids": [
+      "3e79baeb-d851-57e0-980a-ec52b8982a65",
+      "5c8773a7-a91b-5298-920b-f27f46a6828d",
+      "d65d450e-5305-5254-bba2-792ce384090a"
+    ]
+  },
+  {
+    "id": 43,
+    "query": "What are the steps to replace the headlamp halogen bulb on the Elantra?",
+    "expected_answer": "1. Open the hood. 2. Disconnect the negative battery cable. 3. Remove the headlamp bulb cover by turning it counterclockwise. 4. Disconnect the headlamp bulb socket-connector. 5. Unsnap the headlamp bulb retaining wire by pressing the end and pushing it upward. 6. Remove the bulb from the headlamp assembly. 7. Install a new headlamp bulb and snap the retaining wire into position aligning the wire with the groove on the bulb. 8. Connect the headlamp bulb socket-connector. 9. Install the headlamp bulb cover by turning it clockwise. Handle halogen bulbs carefully — wear eye protection, never touch the glass with bare hands (residual oil causes overheating), and allow bulbs to cool before handling.",
+    "chunk_type": "multi",
+    "document_ids": [
+      "6787e1a1-b7df-53c3-9c33-6cd8efad2912",
+      "22a5f67c-3e01-5c6c-aa95-e0ea3dd02efc",
+      "a45b1fbf-a5eb-5dff-b8a0-5536c58cb1bc"
+    ]
+  },
+  {
+    "id": 44,
+    "query": "What child safety seating options does the Elantra manual describe and for which age or size groups?",
+    "expected_answer": "The manual describes three stages: (1) Forward-facing Child Restraint System with harness — for children until they reach the top height or weight limit of the CRS. (2) Booster seat — for children who have outgrown the forward-facing CRS; positions the seat belt correctly over stronger parts of the body. The lap belt must lie across the upper thighs, not the stomach; the shoulder belt across the shoulder and chest, not the neck or face. (3) Seat belt alone — for children big enough for a proper seat belt fit. Children under age 13 must always be properly restrained.",
+    "chunk_type": "multi",
+    "document_ids": [
+      "2233c011-d365-570d-8c55-9c82d89e7e81",
+      "2493d219-1688-5670-8eb4-39088705d39e",
+      "f6c519a7-c95a-5adf-95bf-4d5f1c4b5cb2"
+    ]
+  },
+  {
+    "id": 45,
+    "query": "How do you engage manual shift mode in the Elantra and what do the + and - controls do?",
+    "expected_answer": "Manual shift mode is selected by pushing the shift lever from D (Drive) into the manual gate while stationary or in motion. To return to D (Drive), push the lever back into the main gate. In manual shift mode: + (Up) — push the lever forward once to shift up one gear. - (Down) — pull the lever backward once to shift down one gear. Only the six forward gears can be selected. When the vehicle stops, 1st gear is automatically engaged. Downshifts happen automatically when the vehicle slows down.",
+    "chunk_type": "multi",
+    "document_ids": [
+      "017d2f2d-34eb-584d-a987-c5cf2e80510f",
+      "a10733b1-9cb9-5eaa-a90d-a874754df48a"
+    ]
+  },
+  {
+    "id": 46,
+    "query": "What is covered and what is not covered under the Hyundai emission warranty?",
+    "expected_answer": "Covered: Hyundai will repair or replace emission control components found defective if they cause the vehicle to fail in-use emission standards. Covered parts include the Engine Control Module system (ECM, crankshaft/camshaft/throttle/MAP/O2/IAT/ECT sensors), fuel metering system (injectors, fuel pumps), air induction system (air cleaner housing, throttle body, intake manifold, idle speed control actuator), ignition system (HT cables, ignition coil, power transistor, distributor), and evaporative emission control system (vapour storage canister, fuel tank, fuel filler tube and cap). Not covered: components that have been tampered with or whose original settings were altered.",
+    "chunk_type": "multi",
+    "document_ids": [
+      "d097b660-4492-5cbc-b902-52d93aad0d0f",
+      "e4ba3249-5ead-5b0c-98fe-a417091cbf86",
+      "062154de-5573-5ae7-b8e3-82317e9373bc"
+    ]
+  },
+  {
+    "id": 47,
+    "query": "What are all the fuel requirements and restrictions for the Elantra petrol engine?",
+    "expected_answer": "Use unleaded petrol with RON 91 / AKI 87 or higher. Do not use leaded fuel — it damages the catalytic converter and oxygen sensor. Do not use gasohol with more than 10% ethanol. Do not use any fuel containing methanol. Avoid MTBE over 15.0% vol. Do not use metallic-based additives (silicone, MMT, ferrocene). Approved additives may be added at every 5,000 km if engine starting problems occur. When driving abroad, verify that acceptable fuel is available — methanol or high MTBE fuels may not be covered by warranty.",
+    "chunk_type": "multi",
+    "document_ids": [
+      "d65d450e-5305-5254-bba2-792ce384090a",
+      "31c5f7c8-3a95-58f1-a592-0bbb02ad895c",
+      "b517a31c-eae8-507f-8194-1ae85123b41f",
+      "e2eff17a-d5f9-5ce2-bfa4-afbddb156045",
+      "3aa15160-7dcc-508f-bf15-33d514e9852f",
+      "437ae1e8-6b20-5132-b8e8-6ba22a7532bb"
+    ]
+  },
+  {
+    "id": 48,
+    "query": "What rollover risks and vehicle control loss warnings does the Elantra manual give to drivers?",
+    "expected_answer": "The risk of rollover is greatly increased if the driver loses control at highway speeds. Always wear your seat belt. Avoid high speeds when cornering or turning. Do not make quick steering wheel movements such as sharp lane changes or fast sharp turns. Loss of control often occurs if two or more wheels drop off the roadway and the driver oversteers to reenter — instead, slow down before pulling back into the travel lanes. Exercise extreme caution on slippery surfaces when braking, accelerating, or shifting gears.",
+    "chunk_type": "multi",
+    "document_ids": [
+      "ea86e655-eb05-5f99-abd6-947773454c55",
+      "82cc0466-79d9-56c2-8fdf-318c44716ece"
+    ]
+  },
+  {
+    "id": 49,
+    "query": "What is the recommended tire rotation schedule and what should be inspected during rotation?",
+    "expected_answer": "Tires should be rotated every 12,000 km (7,500 miles) or sooner if irregular wear develops. During rotation, check for correct balance and inspect for uneven wear and damage. Abnormal wear is usually caused by incorrect tire pressure, improper wheel alignment, out-of-balance wheels, severe braking, or severe cornering. Look for bumps or bulges in the tread or side of the tire; replace the tire if found. Replace the tire if fabric or cord is visible. After rotation, bring front and rear tire pressures to specification and check lug nut tightness. Disc brake pads should also be inspected for wear whenever tires are rotated.",
+    "chunk_type": "multi",
+    "document_ids": [
+      "f76e8a00-ed1d-5758-823a-228cf5d18b76",
+      "9a3c4ffd-e50a-5897-96ea-3149c5bd4a34"
+    ]
+  },
+  {
+    "id": 50,
+    "query": "What are the full operating instructions for the heating and ventilation system in the Elantra?",
+    "expected_answer": "To operate: (1) Start the engine. (2) Set the mode selection knob to the desired position — options include Face, Bi-Level, Floor, Floor/Defrost, Defrost, and MAX A/C. (3) Set the temperature control: turn right to increase, turn left to decrease. (4) Set air intake control to Fresh mode (outside air) or Recirculation mode (cabin air) — Fresh mode is recommended. (5) Set the fan speed control to the desired speed; turn right to increase, left to decrease; set to 0 to turn off the fan. (6) Press the A/C button to turn on air conditioning. To close instrument panel vents, slide the vent adjustment lever to the LEFT until it clicks.",
+    "chunk_type": "multi",
+    "document_ids": [
+      "c5f950da-43c9-5b65-a1cc-9a46859e15c5",
+      "d3e33a8f-563d-5438-af4d-2b95c4984c83",
+      "a1048bd6-a3a4-5c9b-a92d-24ac7dfb1dd7",
+      "c2205064-9838-5c21-b504-19dde696aa2c"
+    ]
+  }
+]
