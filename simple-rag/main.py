@@ -60,4 +60,19 @@ def converse(session_id: str = None):
         agent.close()
 
 if __name__ == "__main__":
-    index_documents()
+    import argparse
+
+    parser = argparse.ArgumentParser(description="Simple RAG application")
+    subparsers = parser.add_subparsers(dest="command", required=True)
+
+    subparsers.add_parser("index", help="Load, chunk, and index documents into the vector store")
+
+    converse_parser = subparsers.add_parser("converse", help="Start an interactive RAG conversation")
+    converse_parser.add_argument("--session-id", default=None, help="Resume an existing session by ID")
+
+    args = parser.parse_args()
+
+    if args.command == "index":
+        index_documents()
+    elif args.command == "converse":
+        converse(session_id=args.session_id)

@@ -31,17 +31,24 @@ class DocumentIndexingPipeline:
         )
 
 
-    def add_documents(self):
+    def add_documents(self, batch_size: int = 100):
         paths = glob.glob(f"{constants.CHUNKS_DIR}/*.txt")
         log.info(f"Found {len(paths)} chunk file(s) to index.")
         documents = []
         for filepath in tqdm(paths, desc="Loading chunks", unit="chunk"):
-            document = self._load_chunked_documents(filepath)
-            documents.append(document)
-        log.info(f"Indexing {len(documents)} chunk(s) into vector store...")
-        ids = [doc.metadata["id"] for doc in documents]
-        self.vector_store.add_documents(documents, ids=ids)
-        log.info(f"Indexing complete. {len(documents)} chunk(s) upserted.")
+            documents.append(self._load_chunked_documents(filepath))
+
+        batches = [documents[i:i + batch_size] for i in range(0, len(documents), batch_size)]
+        log.info(f"Indexing {len(documents)} chunk(s) in {len(batches)} batch(es) of {batch_size}.")
+
+        indexed = 0
+        for batch in tqdm(batches, desc="Indexing batches", unit="batch"):
+            ids = [doc.metadata["id"] for doc in batch]
+            self.vector_store.add_documents(batch, ids=ids)
+            indexed += len(batch)
+            #log.info(f"  Indexed {indexed}/{len(documents)} chunks.")
+
+        log.info(f"Indexing complete. {indexed} chunk(s) upserted.")
 
 
     def _load_chunked_documents(self, content_path: str) -> Document:
