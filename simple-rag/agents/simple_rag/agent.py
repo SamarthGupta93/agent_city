@@ -2,8 +2,9 @@ import json
 import os
 import psycopg
 from collections.abc import AsyncGenerator
-from typing import Annotated
+from typing import Annotated, Literal, Optional
 from typing_extensions import TypedDict
+from pydantic import BaseModel
 import constants
 from langchain_core.messages import HumanMessage, AIMessage
 from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
@@ -13,10 +14,31 @@ from langgraph.graph.message import add_messages
 from langgraph.checkpoint.postgres import PostgresSaver
 
 
+VehicleTag = Literal[
+    "hyundai-elantra", "hyundai-sonata", "hyundai-ioniq-ev",
+    "honda-accord", "honda-civic", "toyota-camry", "ford-mustang",
+    "__all__",
+]
+
+_VEHICLE_DETECT_PROMPT = """\
+Given the user message, identify the vehicle being asked about.
+
+Return one of the allowed vehicle tags if a single specific vehicle is mentioned.
+Return "__all__" if the query spans or compares multiple vehicles, or is general.
+Return null if no vehicle is mentioned in this message.
+
+User message: {message}"""
+
+
+class _VehicleDetection(BaseModel):
+    vehicle: Optional[VehicleTag] = None
+
+
 class State(TypedDict):
     messages: Annotated[list, add_messages]
     context: str
     doc_ids: list[str]
+    vehicle: Optional[str]  # persists across turns via checkpointer
 
 
 class ConversationalRAG:
@@ -51,9 +73,30 @@ class ConversationalRAG:
         self._checkpointer.setup()
         self._graph = self._build_graph()
 
+    def _detect_vehicle(self, message: str) -> Optional[VehicleTag]:
+        """Return a vehicle tag, '__all__', or None (carry forward from state)."""
+        detector = self.llm.with_structured_output(_VehicleDetection)
+        result = detector.invoke(_VEHICLE_DETECT_PROMPT.format(message=message))
+        return result.vehicle
+
     def _retrieve(self, state: State) -> dict:
         query = state["messages"][-1].content
-        docs = self.vector_store.similarity_search(query, k=constants.TOPK_DOCS)
+
+        detected = self._detect_vehicle(query)
+        if detected == "__all__":
+            # Cross-vehicle query: search all docs, clear stored vehicle
+            active_vehicle = None
+        elif detected is not None:
+            # Specific vehicle mentioned: use it and update state
+            active_vehicle = detected
+        else:
+            # Nothing mentioned this turn: carry forward from state
+            active_vehicle = state.get("vehicle")
+
+        search_filter = {"vehicle": active_vehicle} if active_vehicle else None
+        docs = self.vector_store.similarity_search(
+            query, k=constants.TOPK_DOCS, filter=search_filter
+        )
         doc_ids = [doc.metadata.get("id", "") for doc in docs]
         context = json.dumps(
             [
@@ -66,7 +109,7 @@ class ConversationalRAG:
             ],
             indent=2,
         )
-        return {"context": context, "doc_ids": doc_ids}
+        return {"context": context, "doc_ids": doc_ids, "vehicle": active_vehicle}
 
     def _generate(self, state: State) -> dict:
         history = "\n".join(
